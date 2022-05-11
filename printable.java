@@ -4,6 +4,7 @@ public class printable {
 	int x;
 	int y;
 	String print;
+	
 	printable (int x, int y, String print) {
 		this.print = print;
 		this.x = x;

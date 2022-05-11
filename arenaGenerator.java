@@ -4,11 +4,13 @@ public class arenaGenerator {
 	int length;
 	int width;
 	int startToFinish;
+
 	arenaGenerator (int length, int width, int startToFinish) {
 		this.length = length + 1;
 		this.width = width + 1;
 		this.startToFinish = startToFinish;
 	}
+	
 	public Wall[] wallGen () {
 		Wall[] ret = new Wall[(2 * (length + 1) + 2 * (width - 1)) - 6];
 		//System.out.println(ret.length);

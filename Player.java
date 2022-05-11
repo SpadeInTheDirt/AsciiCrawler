@@ -5,11 +5,13 @@ public class Player {
 	int y;
 	int life = 3;
 	String playerShape;
+
 	Player (int x, int y, String shape) {
 		this.x = x;
 		this.y = y;
 		playerShape = shape;
 	}
+
 	public void move(String dir) {
 		switch (dir) {
 		case "w" : y--; break;
@@ -18,6 +20,7 @@ public class Player {
 		case "a" : x--; break;
 		}
 	}
+	
 	public int[] selectSquarePlayer(String dir) {
 		int[] xy = new int[]{x, y};
 		switch (dir) {

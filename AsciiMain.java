@@ -5,25 +5,29 @@ import java.util.Random;
 public class AsciiMain {
 	public static void main (String[] Args) {
 		Scanner sn = new Scanner(System.in);
-		System.out.println("Are you sure you would like to enter the dungeon?");
-		System.out.println("Warning: Horrid Ascii graphics ahead.");
+		System.out.println("Are you sure you would like to enter the dungeon? Print yes if yes.");
+		// System.out.println("Warning: Horrid Ascii graphics ahead.");
 		String cont = sn.nextLine();
 		boolean action = true;
 		if (cont.equals("yes")) {
 			System.out.println("This game is most totally best played in full screen. Recommended screen settings are 144p quality and dark. Most pleasureable play exprience nowhere.");
-			System.out.println("Prepare thyself.");
+			// Prepare thyself
+			
 			int length;
 			int width; // AKA Height
 			int score = 0;
 			int difficulty = 0;
 			int starterInfo;
+			
 			Player P = new Player(0, 0, "");
 			Wall[] border;
 			Enemy[] enemies;
 			Destructable[] obstacles;
 			Random r = new Random();
+			
 			arenaGenerator arena;
 			printable[] printout;
+			
 			while (P.life > 0) {
 				//Arena Initialization
 				length = r.nextInt(10) + 20 + 2*difficulty;
@@ -107,12 +111,12 @@ public class AsciiMain {
 			}
 			System.out.println("You died...");
 			sn.nextLine();
-		}else {
+		} else {
 			System.out.println("I'm okay with that too...");
-			sn.nextLine();
 		}
 		printGG();
 	}
+	
 	public static printable[] printpend (printable[] P, printable p) {
 		printable[] ret = new printable[P.length + 1];
 		for (int i = 0; i < P.length; i++) {
@@ -121,6 +125,7 @@ public class AsciiMain {
 		ret[ret.length - 1] = p;
 		return ret;
 	}
+	
 	public static boolean collider(int score, int[] xy, Player[] P, Enemy[] enemies, Wall[] border, Destructable[] obstacles){
 		// Includes killing
 		boolean Cont = true;
@@ -159,6 +164,7 @@ public class AsciiMain {
 		}
 		return Cont;
 	}
+
 	public static void printBoard(printable[] p, String Filler){
 		int [] printY = new int[p.length];
 		int [] printX = new int[p.length];
@@ -185,6 +191,7 @@ public class AsciiMain {
 			System.out.println();
 		}
 	}
+
 	public static int findBounds (int[] compList) {
 		int checkOne = 0;
 		int f = checkOne + 1;
@@ -199,6 +206,7 @@ public class AsciiMain {
 		}
 		return compList[checkOne];
 	}
+
 	public static void printGG () {
 		for (int Z = 1; Z < 143; Z++) {
 			System.out.println();
